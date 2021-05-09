@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent();
 
-        /*
+        //로그인 한 회원원
+       /*
         if (intent.getBooleanExtra("login_data")) {
             login = true;
         } else {
