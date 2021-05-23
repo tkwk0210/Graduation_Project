@@ -12,24 +12,28 @@
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true">
 
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity"
+            android:configChanges="screenSize|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.SEARCH" />
 
-        <!-- android:configChanges="orientation|screenSize" 화면 회전시 UI 새로 안그리는 옵션 -->
-        <activity android:name=".recipeActivity"
-            android:configChanges="orientation|screenSize">
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
         </activity>
+
+        <activity android:name=".LoginActivity" />
 
         <activity android:name=".QRActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>
 
-        <activity android:name=".MainActivity"
-            android:configChanges="screenSize|orientation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <!-- android:configChanges="orientation|screenSize" 화면 회전시 UI 새로 안그리는 옵션 -->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".recipeActivity"
+            android:configChanges="orientation|screenSize">
         </activity>
 
     </application>

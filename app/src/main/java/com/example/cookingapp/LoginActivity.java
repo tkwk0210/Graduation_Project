@@ -2,6 +2,7 @@ package com.example.cookingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(login()){
                     Intent nextIntent = new Intent(LoginActivity.this, MainActivity.class);
                     nextIntent.putExtra("login_data", true);
+                    Log.i("로그인 : ", "성공");
                     startActivity(nextIntent);
 
                     finish();
