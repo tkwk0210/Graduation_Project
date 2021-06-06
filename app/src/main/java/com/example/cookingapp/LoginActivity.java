@@ -50,12 +50,20 @@ public class LoginActivity extends AppCompatActivity {
         String answer_Id = Id.getText().toString();
         String answer_passwd = passwd.getText().toString();
 
-        if (answer_Id.equals(Id_data) && answer_passwd.equals(passwd_data)) {
-            Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-            return true;
+        if (answer_Id.equals(Id_data)) {
+            if(answer_passwd.equals(passwd_data))
+            {
+                Toast.makeText(getApplicationContext(), "로그인 완료", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), "비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
         } else {
             //로그인 실패
-            Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "없는 아이디 입니다.", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
