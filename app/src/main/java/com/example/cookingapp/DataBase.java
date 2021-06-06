@@ -21,10 +21,10 @@ import java.sql.Statement;
 
 public class DataBase extends Activity {
     private static String ip = "172.30.1.5";                                   //접속할 서버측의 IP, 현재는 로컬에서 진행하니 이 컴퓨터의 IP주소를 할당하면 된다.
-    private static String port = "49670";                                       //SQL 구성 관리자에서 TCP/IP 구성 중 모든 IP포트를 설정하는 구간에서 동적 포트를 적으면 된다.
+    private static String port = "49670";                                      //SQL 구성 관리자에서 TCP/IP 구성 중 모든 IP포트를 설정하는 구간에서 동적 포트를 적으면 된다.
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "MyDataBase";                              //접속할 데이터베이스 이름
-    private static String username = "tkwk0210";                                 //서버접속용 ID PW
+    private static String database = "MyDataBase";                             //접속할 데이터베이스 이름
+    private static String username = "tkwk0210";                               //서버접속용 ID PW
     private static String password = "tkwk0210";
     private static String url = "jdbc:jtds:sqlserver://" + ip + ":" + port + "/" + database;
 

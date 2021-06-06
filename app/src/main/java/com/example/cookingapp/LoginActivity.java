@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     boolean login(){
-        // DB
+        // DB SELECT
         String Id_data = "tkwk0210";
         String passwd_data = "123";
 

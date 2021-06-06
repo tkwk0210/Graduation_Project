@@ -12,6 +12,7 @@ public class recipeActivity extends AppCompatActivity {
     Button btn_next;
     int index = 0;
     TextView recipe_content;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -32,34 +33,53 @@ public class recipeActivity extends AppCompatActivity {
                     2. 물이 끓으면 면과 스프를 넣고 3분간 끓인다.
                     3. 기호에 맞춰 파, 계란 등을 넣는다.             -> 레시피 단계 3, 각 1, 2, 3 에 따라 맞는 레시피 내용.
                     를 예시로
+                    -> 내용만
+                    -> 재료. 재료 갯수 역시 레시피와 같이 많음. 매번 양도 갯수도 다르다. -> 재료 n개, n개의 양
+                    면, 스프, 물
          */
-        final int step_length = 3 ;                               // 읽어온 단계 위의 3단계
+        final int step_length = 3 ;                                     // 읽어온 단계 위의 3단계
+        final int ingredients = 3 ;                                     // 식재료 3개
 
-        final String[][] step = new String[step_length][1];       // 크기 3X1, -> 3단계에 각 레시피 내용 (한 단계에 하나의 내용만 있기에 3x1로)
-        String[] step_content = new String[step_length];          // 크기 3, 각 레시피 내용 -> ??  -> 각 단계에 맞춰 string 데이터 넣어야함 (이걸 어떻게 넣을지가 문제)
+        //final String[][] step = new String[step_length][1];           // 크기 3X1, -> 3단계에 각 레시피 내용 (한 단계에 하나의 내용만 있기에 3x1로)
+        final String[] step_content = new String[step_length];          // 크기 3, 각 레시피 내용 -> ??  -> 각 단계에 맞춰 데이터 넣기
 
-        for(int content = 0; content < step_length; content++)
-        {
-            step_content[content] = "아 ㅋㅋ" + content;           // 임시
+        final String[] Ingredients = new String[ingredients];           // 식재료 이름
+        final String[] Ingredients_amount = new String[ingredients];    // 식재료 양
+
+        /*
+        for(int i = 0; i < step_length; i++) {
+            step[i] = "1";
+        }
+        */
+        for(int Ingredients_index = 0; Ingredients_index < ingredients; Ingredients_index++){
+            //
+            Ingredients[Ingredients_index] = Ingredients_index + "식재료";
+            Ingredients_amount[Ingredients_index] = Ingredients_index + "식재료 양";
+        }
+
+        for(int content = 0; content < step_length; content++) {
+            step_content[content] = "내용 " + content;
+            //step[content][0] = step_content[content];
+
             Log.d("내용", step_content[content]);
         }
-
-        for(int i = 0; i < step.length; i++)
-        {
-            step[i][1] = step_content[i];
-            Log.d("내용", step[i][1]);
-        }
-
         // 레시피 단계를 나타내고, 텍스트 문자로 내용을 출력. 각 이미지 or 영상 출력
 
-        recipe_content.setText(step[index] + step[index][1]);
+        recipe_content.setText((index+1) + step_content[index]);
 
         btn_next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String text = step[index] + step[index][1];
-                    recipe_content.setText(text);
-                    index++;
+                        if(index < step_length) {
+                            String text = (index+1) + step_content[index];
+                            recipe_content.setText(text);
+                            Log.d("내용", step_content[index]);
+                            index++;
+                        }
+                        else{
+                            //레시피 종료
+
+                        }
                     }
         });
     }
