@@ -30,6 +30,13 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ramen">
             </ImageView>
+            <ListView
+                android:id="@+id/recipe_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
+            </ListView>
 
         </LinearLayout>
 
