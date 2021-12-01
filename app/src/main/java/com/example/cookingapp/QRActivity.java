@@ -33,23 +33,15 @@ public class QRActivity extends AppCompatActivity {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 finish();
             } else {
-                //qr코드 읽기 성공
-                /*
-                레시피 데이터를 읽으면 어떻게 읽지..
-                1. qr코드로 데이터를 레시피 이름생성 -> 레시피 이름을 변수에 저장 후
-                2. 레시피 이름 보고 바로 레시피 데이터 읽어와서 보여주기.(바로 DB데이터 읽어오기)
-                3. 레시피 이름 보고 검색 메커니즘으로 데이터 읽어오기.
-                */
-
                 String recipe_name = result.getContents();
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 /*
                 대충 php 화면으로 넘어가는 소스
                 */
                 Intent nextIntent;
-                nextIntent = new Intent(QRActivity.this, QRActivity.class);
-                startActivity(nextIntent);
+                nextIntent = new Intent(QRActivity.this, recipeActivity.class);
                 nextIntent.putExtra("load_URL", result.getContents());
+                startActivity(nextIntent);
                 //Log.i("URL : ", "성공");
 
                 finish();
