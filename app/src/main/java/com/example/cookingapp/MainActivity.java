@@ -11,10 +11,9 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
-    Button QR, Login;
     public boolean login = false;
     SearchView Search;
-    ImageView test_imageView;
+    ImageView test_imageView, QR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
             Log.i("로그인 : ", "X");
         }
 
-        Search = findViewById(R.id.Search_recipe);
         QR = findViewById(R.id.QRcode);
-        Login = findViewById(R.id.Login);
-        test_imageView = findViewById(R.id.test_recipe);
+        //Login = findViewById(R.id.Login);
+        test_imageView = findViewById(R.id.recipe);
 
         test_imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+/*
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(nextIntent);
             }
         });
-
+*/
     }
 }
