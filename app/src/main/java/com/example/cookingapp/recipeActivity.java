@@ -1,5 +1,6 @@
 package com.example.cookingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +16,15 @@ public class recipeActivity extends AppCompatActivity {
 
         private WebView mWebView; // 웹뷰 선언
         private WebSettings mWebSettings; //웹뷰세팅
-
+        String URL = "http://15.165.198.180/dashboard/";
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.recipe);
+
+            Intent intent = new Intent();
+
+            URL = intent.getStringExtra("load_URL");
 
             // 웹뷰 시작
             mWebView = (WebView) findViewById(R.id.webView);
@@ -38,7 +43,7 @@ public class recipeActivity extends AppCompatActivity {
             mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 브라우저 캐시 허용 여부
             mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
 
-            mWebView.loadUrl("http://15.165.198.180/dashboard/"); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
+            mWebView.loadUrl(URL); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
         }
         /*
             Button btn_next;

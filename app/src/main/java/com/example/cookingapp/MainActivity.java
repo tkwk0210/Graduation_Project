@@ -8,12 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
     public boolean login = false;
-    SearchView Search;
     ImageView test_imageView, QR;
+    Button Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         QR = findViewById(R.id.QRcode);
-        //Login = findViewById(R.id.Login);
+        Login = findViewById(R.id.Login);
         test_imageView = findViewById(R.id.recipe);
 
         test_imageView.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-/*
+
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(nextIntent);
             }
         });
-*/
+
+
     }
 }

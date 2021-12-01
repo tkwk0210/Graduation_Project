@@ -2,6 +2,7 @@ package com.example.cookingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,15 @@ public class QRActivity extends AppCompatActivity {
 
                 String recipe_name = result.getContents();
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                /*
+                대충 php 화면으로 넘어가는 소스
+                */
+                Intent nextIntent;
+                nextIntent = new Intent(QRActivity.this, QRActivity.class);
+                startActivity(nextIntent);
+                nextIntent.putExtra("load_URL", result.getContents());
+                //Log.i("URL : ", "성공");
+
                 finish();
             }
         } else {
