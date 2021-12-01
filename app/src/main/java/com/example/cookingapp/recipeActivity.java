@@ -3,26 +3,53 @@ package com.example.cookingapp;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class recipeActivity extends AppCompatActivity {
-    Button btn_next;
+
+        private WebView mWebView; // 웹뷰 선언
+        private WebSettings mWebSettings; //웹뷰세팅
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.recipe);
+
+            // 웹뷰 시작
+            mWebView = (WebView) findViewById(R.id.webView);
+
+            mWebView.setWebViewClient(new WebViewClient()); // 클릭시 새창 안뜨게
+
+            mWebSettings = mWebView.getSettings(); //세부 세팅 등록
+            mWebSettings.setJavaScriptEnabled(true); // 웹페이지 자바스클비트 허용 여부
+            mWebSettings.setSupportMultipleWindows(false); // 새창 띄우기 허용 여부
+            mWebSettings.setJavaScriptCanOpenWindowsAutomatically(false); // 자바스크립트 새창 띄우기(멀티뷰) 허용 여부
+            mWebSettings.setLoadWithOverviewMode(true); // 메타태그 허용 여부
+            mWebSettings.setUseWideViewPort(true); // 화면 사이즈 맞추기 허용 여부
+            mWebSettings.setSupportZoom(false); // 화면 줌 허용 여부
+            mWebSettings.setBuiltInZoomControls(false); // 화면 확대 축소 허용 여부
+            mWebSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 컨텐츠 사이즈 맞추기
+            mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 브라우저 캐시 허용 여부
+            mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
+
+            mWebView.loadUrl("http://15.165.198.180/dashboard/"); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
+        }
+        /*
+            Button btn_next;
     int index = 0;
     TextView recipe_content;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.recipe);
 
         btn_next = findViewById(R.id.btn_next);
         recipe_content = findViewById(R.id.recipe_content);
 
         //한 엑티비티에서 다음 레시피 화면 보여주기 누르면 다음 레시피 내용과 동영상 or 사진 보여주기
-        /*
+
                 레시피를 DB에서 읽어오기
                 레시피의 길이 ( 단계가 매번 다를 것.  ex) 4차례 설명하는게 있는 반면 어떤건 10차례 설명)
                 매 레시피 길이에 따라 넘어가야하는 갯수가 다르기에 배열로 저장.
@@ -36,7 +63,7 @@ public class recipeActivity extends AppCompatActivity {
                     -> 내용만
                     -> 재료. 재료 갯수 역시 레시피와 같이 많음. 매번 양도 갯수도 다르다. -> 재료 n개, n개의 양
                     면, 스프, 물
-         */
+
         final int step_length = 3 ;                                     // 읽어온 단계 위의 3단계
         final int ingredients = 3 ;                                     // 식재료 3개
 
@@ -46,11 +73,11 @@ public class recipeActivity extends AppCompatActivity {
         final String[] Ingredients = new String[ingredients];           // 식재료 이름
         final String[] Ingredients_amount = new String[ingredients];    // 식재료 양
 
-        /*
+
         for(int i = 0; i < step_length; i++) {
             step[i] = "1";
         }
-        */
+
         for(int Ingredients_index = 0; Ingredients_index < ingredients; Ingredients_index++){
             //
             Ingredients[Ingredients_index] = Ingredients_index + "식재료";
@@ -81,6 +108,5 @@ public class recipeActivity extends AppCompatActivity {
 
                         }
                     }
-        });
-    }
+        }); */
 }

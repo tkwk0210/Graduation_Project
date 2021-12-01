@@ -31,7 +31,8 @@ public class QRActivity extends AppCompatActivity {
             if(result.getContents() == null) { //qr코드 읽기 실패 or 돌아가기
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 finish();
-            } else { //qr코드 읽기 성공
+            } else {
+                //qr코드 읽기 성공
                 /*
                 레시피 데이터를 읽으면 어떻게 읽지..
                 1. qr코드로 데이터를 레시피 이름생성 -> 레시피 이름을 변수에 저장 후

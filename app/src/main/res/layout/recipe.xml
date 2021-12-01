@@ -6,62 +6,13 @@
     android:orientation="vertical"
     android:weightSum="6">
 
-    <TextView
-        android:id="@+id/recipe_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:layout_weight="1"
-        android:text="1. 레시피 내용"
-        ></TextView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="4"
-        android:weightSum="8">
-
-        <!-- 동영상 or 이미지  -->
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            ></Button>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="2"
-            android:layout_weight="2">
-            <!-- 타이머 -->
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                ></Button>
-            <!-- 버튼할까 -->
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                ></Button>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- 다음버튼 -->
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_gravity="bottom|right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="다음"
-        android:layout_weight="1"
-        ></Button>
-
+    <WebView
+    android:id="@+id/webView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+    </WebView>
 
 </LinearLayout>

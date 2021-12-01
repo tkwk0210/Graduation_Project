@@ -46,20 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Log.d("검색 확인 시 ", "ㅋㅋ");
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.d("검색 도중  ", "ㅋㅋ");
-                return true;
-            }
-        });
-
         QR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

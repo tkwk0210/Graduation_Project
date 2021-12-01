@@ -30,7 +30,4 @@ public class DataClass extends AppCompatActivity {
     }
 
     // DB에서 보낸 데이터 받아 오기
-    public void DB_read(){
-
-    }
 }
