@@ -1,16 +1,21 @@
 package com.example.cookingapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 
-public class LoginActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class LoginActivity extends Activity {
     EditText Id;
     EditText passwd;
     Button Login;
@@ -23,12 +28,59 @@ public class LoginActivity extends AppCompatActivity {
         passwd = findViewById(R.id.user_password);
         Login = findViewById(R.id.Login_btn);
 
+
+
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //로그인 확인
+            public void onClick(View view) {
 
-                //로그인 토대로 유저 정보 출력 (회원 정보 출력 구간)
+                String user_id = Id.getText().toString();
+                String user_pwd = passwd.getText().toString();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject( response );
+                            boolean success = jsonObject.getBoolean( "success" );
+
+                            if(success) {//로그인 성공시
+
+                                String mb_id = jsonObject.getString( "mb_id" );
+                                String mb_password = jsonObject.getString( "mb_password" );
+                                //String UserName = jsonObject.getString( "UserName" );
+
+                                Toast.makeText( getApplicationContext(), String.format("환영합니다."), Toast.LENGTH_SHORT ).show();
+                                Intent intent = new Intent( LoginActivity.this, MainActivity.class );
+
+                                intent.putExtra( "mb_id", mb_id );
+                                intent.putExtra( "mb_password", mb_password );
+                                //intent.putExtra( "UserName", UserName );
+
+                                startActivity( intent );
+
+                            } else {//로그인 실패시
+                                Toast.makeText( getApplicationContext(), "로그인에 실패하셨습니다.", Toast.LENGTH_SHORT ).show();
+                                return;
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                LoginRequest loginRequest = new LoginRequest( user_id, user_pwd, responseListener );
+                RequestQueue queue = Volley.newRequestQueue( LoginActivity.this );
+                queue.add( loginRequest );
+
+            }
+        });
+
+    }
+}
+
+                /*로그인 토대로 유저 정보 출력 (회원 정보 출력 구간)
                 if(login()){
                     Intent nextIntent = new Intent(LoginActivity.this, MainActivity.class);
                     nextIntent.putExtra("login_data", true);
@@ -36,35 +88,4 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(nextIntent);
 
                     finish();
-                }
-            }
-        });
-
-    }
-
-    boolean login(){
-        // DB SELECT
-        String Id_data = "tkwk0210";
-        String passwd_data = "123";
-
-        String answer_Id = Id.getText().toString();
-        String answer_passwd = passwd.getText().toString();
-
-        if (answer_Id.equals(Id_data)) {
-            if(answer_passwd.equals(passwd_data))
-            {
-                Toast.makeText(getApplicationContext(), "로그인 완료", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-            else
-            {
-                Toast.makeText(getApplicationContext(), "비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        } else {
-            //로그인 실패
-            Toast.makeText(getApplicationContext(), "없는 아이디 입니다.", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
-}
+                }*/

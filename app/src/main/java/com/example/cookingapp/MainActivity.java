@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         /*로그인 한 회원 체크
         if (intent.getBooleanExtra("login_data", true)) {
             login = true;

@@ -19,13 +19,16 @@ public class recipeActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.recipe);
 
+
             Intent intent = getIntent();
-            if(URL == null)
+            URL = intent.getStringExtra("load_URL");
+
+            if(URL != null)
             {
-                URL = "http://13.125.19.61/dashboard/";
+                URL = intent.getStringExtra("load_URL");
             }
             else{
-                URL = intent.getStringExtra("load_URL");
+                URL = "http://15.164.123.111/dashboard/";
             }
 
             // 웹뷰 시작
@@ -48,6 +51,7 @@ public class recipeActivity extends AppCompatActivity {
 
             mWebView.loadUrl(URL); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
         }
+
         /*
             Button btn_next;
     int index = 0;
