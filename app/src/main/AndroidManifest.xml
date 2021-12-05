@@ -29,9 +29,9 @@
 
         <activity android:name=".QRActivity"
             android:screenOrientation="fullSensor"
+            android:configChanges="orientation|screenSize"
             tools:replace="screenOrientation"/>
-
-        <!-- android:configChanges="orientation|screenSize" 화면 회전시 UI 새로 안그리는 옵션 -->
+        <!-- 화면 회전시 UI 새로 안그리는 옵션 -->
 
         <activity android:name=".recipeActivity"
             android:configChanges="orientation|screenSize">
