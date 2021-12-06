@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     ImageView recipe, QR;
-    Button Login;
+    //Button Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         recipe = findViewById(R.id.recipe);
         QR = findViewById(R.id.QRcode);
-        Login = findViewById(R.id.Login);
+        //Login = findViewById(R.id.Login);
 
         recipe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+/*
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(nextIntent);
             }
         });
+        */
 
 
     }
