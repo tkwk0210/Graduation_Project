@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center"
         >
         <ImageView
 
@@ -19,6 +20,7 @@
 
         </ImageView>
         <TextView
+
             android:layout_margin="50px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,7 +35,6 @@
         </TextView>
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -114,7 +115,6 @@
                 android:layout_gravity="center"
                 android:src="@drawable/recipe">
             </ImageView>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                 android:textStyle="bold"
                 android:textColor="#122A57"
                 android:textSize="80px"
-                android:background="#f4a261"
+                android:background="#FFF"
                 android:layout_marginTop="30px"
                 android:fontFamily="@font/welcome2_1"
                 android:padding="5px"
@@ -137,7 +137,7 @@
             android:orientation="vertical"
             android:layout_marginLeft="50px"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="bottom">
 
             <ImageView
                 android:id="@+id/QRcode"
@@ -153,7 +153,8 @@
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="80px"
-                android:background="#f4a261"
+                android:background="#FFF"
+                android:layout_gravity="center"
                 android:layout_marginTop="30px"
                 android:fontFamily="@font/welcome2_1"
                 android:padding="5px">
@@ -162,4 +163,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

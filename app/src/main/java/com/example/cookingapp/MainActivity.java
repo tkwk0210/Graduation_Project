@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     ImageView recipe, QR;
+    WebView webView_1 ;
     //Button Login;
 
     @Override
@@ -19,7 +23,19 @@ public class MainActivity extends AppCompatActivity {
 
         recipe = findViewById(R.id.recipe);
         QR = findViewById(R.id.QRcode);
+        webView_1 = findViewById(R.id.main_webview_1);
         //Login = findViewById(R.id.Login);
+
+        Intent intent = getIntent();
+        intent.getStringExtra("load_URL");
+
+
+        // 웹뷰 시작
+        webView_1 = (WebView) findViewById(R.id.webView);
+
+        webView_1.setWebViewClient(new WebViewClient());                             // 클릭시 새창 안뜨게
+
+        webView_1.loadUrl("http://google.com"); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
 
         recipe.setOnClickListener(new View.OnClickListener() {
             @Override
