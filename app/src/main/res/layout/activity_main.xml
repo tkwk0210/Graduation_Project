@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:weightSum="5">
+    android:weightSum="5"
+    android:background="#F0F2BB">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center"
-        >
+        android:layout_gravity="center">
+
         <ImageView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:src="@drawable/main_chef_image"
-            android:layout_margin="50px">
-
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_main_image">
         </ImageView>
-        <TextView
 
-            android:layout_margin="50px"
+        <TextView
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="240px"
+            android:textSize="50dp"
             android:textColor="#000000"
             android:text="Ramsay"
             android:gravity="center"
             android:textStyle="bold"
-            android:fontFamily="@font/welcome2_1"
-            android:background="">
-
+            android:fontFamily="@font/welcome2_1">
         </TextView>
 
     </LinearLayout>
@@ -49,17 +50,7 @@
             android:orientation="vertical"
             android:layout_weight="4">
 
-            <WebView
-                android:id="@+id/main_webview_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin= "50px"
-                android:layout_weight="1">
 
-            </WebView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,6 +66,7 @@
                     android:layout_margin="50px"
                     android:layout_weight="1">
                 </WebView>
+
                 <WebView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -86,9 +78,8 @@
                 </WebView>
             </LinearLayout>
 
-
-
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -97,8 +88,9 @@
         android:orientation="horizontal"
         android:layout_weight="1"
         android:weightSum="2"
-        android:layout_marginBottom="50px">
-
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -120,9 +112,9 @@
                 android:layout_height="wrap_content"
                 android:text="레시피 보기"
                 android:textStyle="bold"
-                android:textColor="#122A57"
-                android:textSize="80px"
-                android:background="#FFF"
+                android:textColor="#000000"
+                android:textSize="32dp"
+                android:background="@drawable/bg_custom_textview"
                 android:layout_marginTop="30px"
                 android:fontFamily="@font/welcome2_1"
                 android:padding="5px"
@@ -153,7 +145,7 @@
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="80px"
-                android:background="#FFF"
+                android:background="@drawable/bg_custom_textview"
                 android:layout_gravity="center"
                 android:layout_marginTop="30px"
                 android:fontFamily="@font/welcome2_1"
