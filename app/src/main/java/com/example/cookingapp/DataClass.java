@@ -29,5 +29,4 @@ public class DataClass extends AppCompatActivity {
         //기본 형태
     }
 
-    // DB에서 보낸 데이터 받아 오기
 }
