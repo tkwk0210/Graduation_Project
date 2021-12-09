@@ -9,7 +9,7 @@
         <!-- No Title Bar-->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">#FFF</item>
+        <item name="android:statusBarColor">#F29F05</item>
     </style>
 
 </resources>

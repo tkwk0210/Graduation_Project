@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -12,6 +13,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 
 public class TextViewPagerAdapter extends PagerAdapter {
+
 
     // LayoutInflater 서비스 사용을 위한 Context 참조 저장.
     private Context mContext = null ;
@@ -28,14 +30,23 @@ public class TextViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = null ;
-
+        int index;
         if (mContext != null) {
             //LayoutInflater를 통해 "/res/layout/page.xml"을 뷰로 생성.
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.page, container, false);
 
-            TextView textView = (TextView) view.findViewById(R.id.title) ;
-            textView.setText("TEXT " + position) ;
+            TextView textView = view.findViewById(R.id.text_pager) ;
+            textView.setText((++position) + "/5");
+            index = position;
+            textView.setBackgroundResource(R.drawable.main_chef_image);
+
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(container.getContext(), index + " 네~", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         // 뷰페이저에 추가.
@@ -53,7 +64,7 @@ public class TextViewPagerAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         // 전체 페이지 수는 10개로 고정.
-        return 10;
+        return 5;
     }
 
     @Override

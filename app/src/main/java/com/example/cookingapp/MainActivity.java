@@ -1,31 +1,17 @@
 package com.example.cookingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
-
+import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
-import java.util.ArrayList;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     ImageView recipe, QR;
-    ViewPager2 viewPager ;
-
-
-    protected ArrayList setTextList(){
-
-        ArrayList<String> itemList = new ArrayList();
-        itemList.add("Page 1");
-        itemList.add("Page 2");
-        itemList.add("Page 3");
-        itemList.add("Page 4");
-        itemList.add("Page 5");
-
-        return itemList;
-    }
+    ViewPager viewPager ;
+    CircleImageView circleImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
         //뷰페이저
         viewPager = findViewById(R.id.viewPager);
-        TextViewPagerAdapter pagerAdapter = new TextViewPagerAdapter(setTextList()) ;
+        TextViewPagerAdapter pagerAdapter = new TextViewPagerAdapter(this) ;
         viewPager.setAdapter(pagerAdapter);
-        viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
+        circleImageView = findViewById(R.id.main_circle_image);
         recipe = findViewById(R.id.recipe);
         QR = findViewById(R.id.QRcode);
 
@@ -45,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         intent.getStringExtra("load_URL");
 
+        circleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            // 팝업 띄우기 ㄱ
+
+            }
+        });
 
         recipe.setOnClickListener(new View.OnClickListener() {
             @Override
