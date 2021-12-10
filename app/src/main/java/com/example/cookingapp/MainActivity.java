@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             // 팝업 띄우기 ㄱ
-
+                Intent popup_intent = new Intent(MainActivity.this, popup.class);
+                startActivity(popup_intent);
             }
         });
 
