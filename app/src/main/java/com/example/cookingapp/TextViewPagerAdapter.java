@@ -23,7 +23,7 @@ public class TextViewPagerAdapter extends PagerAdapter {
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=best",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=qa",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=notice" };
-    int res[] = { main_first, main_second, main_third, main_fourth, main_second };
+    int res[] = { main_first, main_second, main_third, main_fourth, main_fifth };
 
     // LayoutInflater 서비스 사용을 위한 Context 참조 저장
     private Context mContext = null ;
