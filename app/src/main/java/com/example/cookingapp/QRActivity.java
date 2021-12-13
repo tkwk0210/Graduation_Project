@@ -29,7 +29,7 @@ public class QRActivity extends AppCompatActivity {
 
         if(result != null) {
             if(result.getContents() == null) { //qr코드 읽기 실패 or 돌아가기
-                Toast.makeText(this, "QR스캐너를 취소 합니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "QR코드 스캔을 취소 합니다.", Toast.LENGTH_LONG).show();
                 finish();
             } else {
                 Intent nextIntent;

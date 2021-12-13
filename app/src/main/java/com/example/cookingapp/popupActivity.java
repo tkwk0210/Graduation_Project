@@ -8,18 +8,19 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class popup extends AppCompatActivity {
+public class popupActivity extends AppCompatActivity {
     ImageView X_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //타이틀바 없애
+
+        //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.popup_layout);
 
-        X_button = findViewById(R.id.X_btn);
 
+        X_button = findViewById(R.id.X_btn);
         X_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

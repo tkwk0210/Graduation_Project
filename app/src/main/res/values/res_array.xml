@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="main_image">
+        <item>@drawable/main_first</item>
+        <item>@drawable/main_second</item>
+        <item>@drawable/main_second</item>
+        <item>@drawable/main_second</item>
+        <item>@drawable/main_second</item>
+    </array>
+</resources>
