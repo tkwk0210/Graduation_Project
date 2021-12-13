@@ -22,7 +22,7 @@ public class TextViewPagerAdapter extends PagerAdapter {
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=free",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=best",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=qa",
-            "http://15.164.123.111/dashboard/bbs/board.php?bo_table=notice" };
+            "http://15.164.123.111/dashboard/bbs/board.php?bo_table=notice"};
     int res[] = { main_first, main_second, main_third, main_fourth, main_fifth };
 
     // LayoutInflater 서비스 사용을 위한 Context 참조 저장
@@ -50,14 +50,13 @@ public class TextViewPagerAdapter extends PagerAdapter {
             textView.setText((++position) + "/5");
             index = position;
             Pager_intent.putExtra("pos", index);
-            textView.setBackgroundResource(res[index-1]);
+            textView.setBackgroundResource(res[(index-1)]);
 
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(container.getContext(), index + " 네~", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(container.getContext(), index + " 네~", Toast.LENGTH_SHORT).show();
                     // 게시판으로 이동
-                    textView.setBackgroundResource(res[index]);
                     Intent intent = new Intent(mContext, recipeActivity.class);
                     intent.putExtra("load_URL", URL[(index-1)]);
                     mContext.startActivity(intent);
