@@ -19,7 +19,7 @@ public class QRActivity extends AppCompatActivity {
 
         qrScan = new IntentIntegrator(this);
         qrScan.setBeepEnabled(false);                // QR코드 스캔시 삑 소리가 남 false시 소리 X
-        qrScan.setOrientationLocked(false);         // default가 세로모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경
+        qrScan.setOrientationLocked(false);          // default가 세로모드인데 휴대폰 방향에 따라 가로, 세로로 자동 변경
         qrScan.initiateScan();
     }
 
@@ -34,7 +34,7 @@ public class QRActivity extends AppCompatActivity {
             } else {
                 Intent nextIntent;
                 nextIntent = new Intent(QRActivity.this, recipeActivity.class);
-                nextIntent.putExtra("load_URL", result.getContents());
+                nextIntent.putExtra("load_URL", result.getContents()); // qr코드 URL 보내기
                 startActivity(nextIntent);
 
                 finish();

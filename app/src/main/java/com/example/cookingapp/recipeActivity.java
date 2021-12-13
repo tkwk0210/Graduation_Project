@@ -19,18 +19,15 @@ public class recipeActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.recipe);
 
-
             Intent intent = getIntent();
             URL = intent.getStringExtra("load_URL");
 
-            if(URL != null)
-            {
+            if(URL != null){
                 URL = intent.getStringExtra("load_URL");
             }
             else{
                 URL = "http://15.164.123.111/dashboard/";
             }
-
             // 웹뷰 시작
             mWebView = (WebView) findViewById(R.id.webView);
 
@@ -47,7 +44,6 @@ public class recipeActivity extends AppCompatActivity {
             mWebSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 컨텐츠 사이즈 맞추기
             mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);                       // 브라우저 캐시 허용 여부
             mWebSettings.setDomStorageEnabled(true);                                    // 로컬저장소 허용 여부
-
 
             mWebView.loadUrl(URL); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
         }

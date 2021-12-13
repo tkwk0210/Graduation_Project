@@ -19,21 +19,19 @@ public class popupActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.popup_layout);
 
-
         X_button = findViewById(R.id.X_btn);
         X_button.setOnClickListener(new View.OnClickListener() {
-            @Override
+            @Override //꺼짐
             public void onClick(View v) {
                 finish();
             }
         });
     }
-    // 밖에 건들이면 꺼지는거 없애는 코드
+    // 밖에 터치하면 안꺼지게.
     @Override
     public boolean onTouchEvent(MotionEvent event){
-        if (event.getAction() == MotionEvent.ACTION_OUTSIDE){
-            return false;
-        }
+        if (event.getAction() == MotionEvent.ACTION_OUTSIDE){ return false; }
+
         return true;
     }
     // 백버튼 막기

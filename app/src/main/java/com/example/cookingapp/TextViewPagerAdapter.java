@@ -17,24 +17,21 @@ import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 
 public class TextViewPagerAdapter extends PagerAdapter {
-    String URL[] = { "http://15.164.123.111/dashboard/",
+    String URL[] = {
+            "http://15.164.123.111/dashboard/",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=free",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=best",
             "http://15.164.123.111/dashboard/bbs/board.php?bo_table=qa",
-            "http://15.164.123.111/dashboard/bbs/board.php?bo_table=notice"};
-    int res[] = { main_first, main_second, main_third, main_fourth, main_first };
+            "http://15.164.123.111/dashboard/bbs/board.php?bo_table=notice" };
+    int res[] = { main_first, main_second, main_third, main_fourth, main_second };
 
-    // LayoutInflater 서비스 사용을 위한 Context 참조 저장.
+    // LayoutInflater 서비스 사용을 위한 Context 참조 저장
     private Context mContext = null ;
 
-    public TextViewPagerAdapter(ArrayList arrayList) {
-
-    }
+    public TextViewPagerAdapter(ArrayList arrayList) { }
 
     // Context를 전달받아 mContext에 저장하는 생성자 추가.
-    public TextViewPagerAdapter(Context context) {
-        mContext = context ;
-    }
+    public TextViewPagerAdapter(Context context) { mContext = context ;}
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
@@ -67,7 +64,6 @@ public class TextViewPagerAdapter extends PagerAdapter {
                 }
             });
         }
-
         // 뷰페이저에 추가.
         container.addView(view) ;
 
